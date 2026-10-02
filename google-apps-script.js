@@ -32,12 +32,12 @@ function doPost(e) {
     
     // Prepare row data matching the form fields
     const rowData = [
-      timestamp,           // Timestamp
-      data.name || '',     // Full Name
-      data.phone || '',    // Phone Number
-      data.guests || '',   // Number of Guests
-      data.attend || '',   // Will You Attend? (yes/no)
-      data.message || ''   // Message for the Couple
+      timestamp,              // Timestamp
+      data.name || '',        // Full Name
+      data.phone || '',       // Phone Number
+      data.guests || '',      // Number of Guests
+      data.attending || '',   // Will You Attend? (yes/no)
+      data.message || ''      // Message for the Couple
     ];
     
     // Append the data to the sheet
@@ -97,7 +97,7 @@ function testDoPost() {
         name: 'Test User',
         phone: '+91 9876543210',
         guests: '2',
-        attend: 'yes',
+        attending: 'yes',
         message: 'Looking forward to celebrating with you! 🎉'
       })
     }
