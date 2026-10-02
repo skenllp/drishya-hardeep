@@ -24,6 +24,21 @@ function doPost(e) {
     // Get the active spreadsheet
     const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
     
+    // Auto-initialize headers if sheet is empty
+    if (sheet.getLastRow() === 0) {
+      const headers = ['Timestamp', 'Name', 'Phone', 'Guests', 'Attending', 'Message'];
+      sheet.appendRow(headers);
+      
+      // Format headers
+      const headerRange = sheet.getRange(1, 1, 1, headers.length);
+      headerRange.setFontWeight('bold');
+      headerRange.setBackground('#A78BCB'); // Purple color to match your theme
+      headerRange.setFontColor('#FFFFFF');
+      
+      // Freeze the header row
+      sheet.setFrozenRows(1);
+    }
+    
     // Parse the incoming data
     const data = JSON.parse(e.postData.contents);
     
