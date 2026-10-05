@@ -35,22 +35,23 @@
 
   <style>
     :root {
-      --ivory: #FFFBF3;
-      --cream: #F4EEF6;
-      --cream-2: #EBE1F2;
-      --champagne: #A78BCB;
-      --champagne-2: #8466AE;
-      --soft-gold: #DDD0F0;
-      --warm-white: #FFFDF8;
-      --olive: #707C4E;
-      --olive-dark: #4B5536;
-      --ink: #3A2F22;
-      --ink-soft: #6b5f4c;
-      --line: rgba(132, 102, 174, 0.28);
-      --glass: rgba(255, 253, 248, 0.55);
-      --glass-strong: rgba(255, 253, 248, 0.72);
-      --glass-border: rgba(167, 139, 203, 0.35);
-      --shadow: 0 20px 60px rgba(70, 50, 110, 0.14);
+      /* ── Temple Gold & Sacred Saffron palette ── */
+      --ivory:        #FFF8EE;   /* warm sandalwood cream */
+      --cream:        #FDF0D5;   /* soft turmeric wash */
+      --cream-2:      #F5E6C8;   /* deeper golden cream */
+      --champagne:    #D4A855;   /* warm brass gold */
+      --champagne-2:  #C6982F;   /* rich turmeric gold */
+      --soft-gold:    #EBC77A;   /* soft honey gold */
+      --warm-white:   #FFFDF8;   /* pure warm white */
+      --olive:        #E8891A;   /* sacred saffron */
+      --olive-dark:   #B85C0D;   /* deep saffron-orange */
+      --ink:          #3B2A10;   /* deep sandalwood */
+      --ink-soft:     #6B5638;   /* warm taupe */
+      --line:         rgba(198, 152, 47, 0.28);
+      --glass:        rgba(255, 253, 248, 0.60);
+      --glass-strong: rgba(255, 253, 248, 0.80);
+      --glass-border: rgba(212, 168, 85, 0.35);
+      --shadow:       0 20px 60px rgba(59, 42, 16, 0.12);
 
     }
 
@@ -984,11 +985,17 @@
     }
 
     .wishes-list {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(3, auto);
       justify-content: center;
-      gap: 10px 14px;
+      gap: 12px 16px;
       margin-top: 24px;
+    }
+
+    @media (max-width: 540px) {
+      .wishes-list {
+        grid-template-columns: repeat(2, auto);
+      }
     }
 
     .wishes-list span {
@@ -1287,6 +1294,25 @@
       letter-spacing: 2px;
       color: var(--champagne-2);
       text-transform: uppercase;
+    }
+
+    .tl-year--magic {
+      font-size: 15px;
+      letter-spacing: 4px;
+      font-weight: 700;
+      text-transform: none;
+      background: linear-gradient(90deg, #c9a84c, #f5e29a, #e8891a, #f5e29a, #c9a84c);
+      background-size: 300% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer-gold 2.4s linear infinite;
+      filter: drop-shadow(0 0 6px rgba(201, 168, 76, 0.55));
+    }
+
+    @keyframes shimmer-gold {
+      0%   { background-position: 0% center; }
+      100% { background-position: 300% center; }
     }
 
     .tl-title {
@@ -2561,7 +2587,6 @@
   <!-- ============ AMBIENT DECOR ============ -->
   <div id="cursor-glow"></div>
   <div id="petal-field"></div>
-  <div id="particles"></div>
   <div class="copy-toast" id="copy-toast">Copied to clipboard</div>
 
   <!-- ============ MAIN SITE ============ -->
@@ -2578,7 +2603,7 @@
         <div class="monogram">The Wedding Reception Of Drishya And Hardeep</div>
         <h1 class="hero-names script" id="hero-names"><span class="name-part">Drishya</span> <br> <span
             class="amp serif">&amp;</span> <br> <span class="name-part">Hardeep</span></h1>
-        <p class="hero-sub">Wedding Reception &middot; <br> 16 November 2026 &nbsp;·&nbsp; <br> Ravivarma Hall, Sargaalaya Crafts Village <br> Iringal, Vadakara <br> 5:00 PM – 8:30 PM</p>
+        <p class="hero-sub">Wedding Reception<br> 16 November 2026 <br> Ravivarma Hall, Sargaalaya Crafts Village <br> Iringal, Vadakara <br> 5:00 PM – 8:30 PM</p>
       </div>
       <div class="scroll-cue"><span>Scroll</span><span class="line"></span></div>
     </section>
@@ -2626,7 +2651,7 @@
     <!-- EVENTS — CINEMATIC CHAPTERS -->
     <section id="events" class="section">
       <div class="eyebrow">The Celebrations</div>
-      <h2 style="font-size:clamp(30px,4.5vw,48px);color:var(--olive-dark);">Three Chapters, One Story</h2>
+      <h2 style="font-size:clamp(30px,4.5vw,48px);color:var(--olive-dark);">Two Special Celebrations</h2>
       <div class="divider"></div>
       <div class="event-grid">
 
@@ -2664,14 +2689,7 @@
                 <span>11th November 2026</span> &middot; <b>Hotel 7 Apple</b>, Guruvayoor
               </div>
             </div>
-
-            <div class="event-actions">
-              <a class="btn" target="_blank"
-                href="https://maps.app.goo.gl/ApaNHjE9LAAYDhRv5">Open Maps</a>
-              <a class="btn" target="_blank"
-                href="https://maps.app.goo.gl/ApaNHjE9LAAYDhRv5">Navigate →</a>
-              <button class="btn solid" onclick="downloadICS('wedding')">Add To Calendar ⬇</button>
-                  </div>
+            </div>
           </div>
         </div>
 
@@ -2700,17 +2718,12 @@
               <b>Ravivarma Hall, Sargaalaya Crafts Village</b><br>
               Iringal, Vadakara
             </div>
-            <div class="event-actions">
-              <a class="btn" target="_blank" href="https://maps.app.goo.gl/KQVepQDgVAWUjiB69">Open Maps</a>
-              <a class="btn" target="_blank"
-                href="https://maps.app.goo.gl/KQVepQDgVAWUjiB69">Navigate →</a>
-              <button class="btn solid" onclick="downloadICS('reception')">Add To Calendar ⬇</button>
             </div>
           </div>
         </div>
 
         <!-- CHAPTER 03: WEDDING RECEPTION - BRIDE'S FAMILY -->
-        <div class="chapter-card reverse" id="chapter-reception-bride">
+        <!-- <div class="chapter-card reverse" id="chapter-reception-bride">
           <div class="chapter-mark">
             <span class="cm-glyph">✨</span>
             <span class="cm-day" style="font-family:'Poppins',sans-serif;font-size:46px;font-weight:600;line-height:1;">16<sup style="font-size:20px;vertical-align:top;margin-left:3px;font-weight:400;">th</sup></span>
@@ -2728,17 +2741,10 @@
               <b>Ravivarma Hall, Sargaalaya Crafts Village</b><br>
               Iringal, Vadakara
             </div>
-            <div class="event-actions">
-              <a class="btn" target="_blank"
-                href="https://maps.app.goo.gl/KQVepQDgVAWUjiB69">Open Maps</a>
-              <a class="btn" target="_blank"
-                href="https://maps.app.goo.gl/KQVepQDgVAWUjiB69">Navigate →</a>
-              <button class="btn solid" onclick="downloadICS('reception')">Add To Calendar ⬇</button>
-              </div>
           </div>
         </div>
 
-      </div>
+      </div> -->
 
       <!-- BEST WISHES -->
       <div class="wishes-card">
@@ -2752,6 +2758,8 @@
           <span>Dheeksha Ramanan</span>
           <span>Natalia Nikhil</span>
           <span>Rishwitha Ramanan</span>
+          <span>Dr Pradeep VK</span>
+          <span>Sulatha Pradeep</span>
         </div>
       </div>
     </section>
@@ -2786,7 +2794,7 @@
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-year">11.11.2026</div>
+          <div class="tl-year tl-year--magic">✨ 11 : 11 ✨</div>
           <h3 class="tl-title serif">The Wedding</h3>
           <p class="tl-text">And now, surrounded by family, Drishya &amp; Hardeep begin their forever.</p>
         </div>
@@ -2965,26 +2973,6 @@
         <div class="location-card">
           <div class="venue-row">
             <div class="venue-info">
-              <div class="v-label">Wedding Celebration &amp; Lunch &middot; 11 Nov</div>
-              <div class="v-name serif">Hotel 7 APPLE</div>
-              <div class="v-addr">Guruvayoor, Thrissur District &mdash; followed by lunch</div>
-            </div>
-            <div class="venue-actions">
-              <a class="icon-btn" title="Open Google Maps" target="_blank"
-                href="https://maps.app.goo.gl/ApaNHjE9LAAYDhRv5">📍</a>
-              <a class="icon-btn" title="Navigate" target="_blank"
-                href="https://maps.app.goo.gl/ApaNHjE9LAAYDhRv5">🧭</a>
-              <button class="icon-btn" title="Copy Venue"
-                onclick="copyAddress('Hotel 7 APPLE, Guruvayoor, Thrissur District')">⧉</button>
-              <button class="icon-btn" title="Share Location"
-                onclick="shareLocation('Hotel 7 APPLE, Guruvayoor','https://maps.app.goo.gl/ApaNHjE9LAAYDhRv5')">↗</button>
-              <img class="venue-qr" alt="QR"
-                src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&color=75-85-52&bgcolor=255-251-243&data=https%3A%2F%2Fmaps.app.goo.gl%2FApaNHjE9LAAYDhRv5">
-            </div>
-          </div>
-
-          <div class="venue-row">
-            <div class="venue-info">
               <div class="v-label">Wedding Reception &middot; 16 Nov</div>
               <div class="v-name serif">Ravivarma Hall, Sargaalaya Crafts Village</div>
               <div class="v-addr">Iringal, Vadakara &mdash; 5:00 PM – 8:30 PM</div>
@@ -2992,8 +2980,6 @@
             <div class="venue-actions">
               <a class="icon-btn" title="Open Google Maps" target="_blank"
                 href="https://maps.app.goo.gl/KQVepQDgVAWUjiB69">📍</a>
-              <a class="icon-btn" title="Navigate" target="_blank"
-                href="https://maps.app.goo.gl/KQVepQDgVAWUjiB69">🧭</a>
               <button class="icon-btn" title="Copy Venue"
                 onclick="copyAddress('Ravivarma Hall, Sargaalaya Crafts Village, Iringal, Vadakara')">⧉</button>
               <button class="icon-btn" title="Share Location"
@@ -3074,7 +3060,7 @@
       <rect x="14" y="4" width="4" height="16"></rect>
     </svg>
   </button>
-  <audio id="bg-music" loop src="traditional-instrumental.mp3"></audio>
+  <audio id="bg-music" loop src="song.mp3"></audio>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -3224,16 +3210,7 @@
       p.style.fontSize = (10 + Math.random() * 7) + 'px';
       petalField.appendChild(p);
     }
-    const particleField = document.getElementById('particles');
-    const sparkCount = isMobile ? 5 : 10;
-    for (let i = 0; i < sparkCount; i++) {
-      const s = document.createElement('div');
-      s.className = 'spark';
-      s.style.left = Math.random() * 100 + 'vw';
-      s.style.top = Math.random() * 100 + 'vh';
-      s.style.animationDelay = (Math.random() * 4) + 's';
-      particleField.appendChild(s);
-    }
+    
     /* marigold petals for Haldi chapter */
     const celebrationChapter = document.getElementById('chapter-celebration') || document.querySelector('.event-chapter');
     const marigoldCount = isMobile ? 3 : 6;
@@ -3799,7 +3776,7 @@ END:VCALENDAR`;
           playing = true; player.classList.add('playing');
           iconPlay.style.display = 'none'; iconPause.style.display = 'block';
           if (footerMusicBtn) footerMusicBtn.textContent = '❚❚ Pause Music';
-        }).catch(() => { showToast('Add traditional-instrumental.mp3 to this folder to enable music'); });
+        }).catch(() => { showToast('Add song.mp3 to this folder to enable music'); });
       } else {
         music.pause(); playing = false; player.classList.remove('playing');
         iconPlay.style.display = 'block'; iconPause.style.display = 'none';
